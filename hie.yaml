@@ -3,6 +3,8 @@ cradle:
 
     - path: "./src"
       component: "lib:alwaystrue"
+    - path: "./src"
+      component: "lib:vidbid"
     
     - path: "./app/compile-plutus.hs"
       component: "exe:compile-plutus"

@@ -17,6 +17,7 @@ import System.Environment ( getArgs )
 import qualified Data.ByteString.Short as SBS
 
 import AlwaysTrue.Onchain (apiScript, scriptAsShortBs)
+import Vidbid.Mint (v2mintingScript, v2mintingScriptShortBs)
 
 vasilPV :: Plutus.ProtocolVersion
 vasilPV = Plutus.ProtocolVersion 7 0
@@ -29,6 +30,10 @@ main = do
     let scriptname = if nargs > 1 then args!!1 else  "alwaystrue.plutus"
     putStrLn $ "Writing output to: " ++ scriptname
     writePlutusScript scriptnum scriptname apiScript scriptAsShortBs
+
+    let vidbidmintscriptname = if nargs > 1 then args!!1 else  "vidbidMint.plutus"
+    putStrLn $ "Writing output to: " ++ vidbidmintscriptname
+    writePlutusScript scriptnum vidbidmintscriptname v2mintingScript v2mintingScriptShortBs
 
 
 writePlutusScript :: Integer -> FilePath -> PlutusScript PlutusScriptV2 -> SBS.ShortByteString -> IO ()
