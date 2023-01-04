@@ -1,0 +1,8 @@
+cradle:
+  cabal:
+
+    - path: "./src"
+      component: "lib:alwaystrue"
+    
+    - path: "./app/compile-plutus.hs"
+      component: "exe:compile-plutus"
